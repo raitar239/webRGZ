@@ -9,7 +9,7 @@ import uuid
 from datetime import timedelta
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:3000"])
+CORS(app, origins="*")
 
 # Config
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///video_platform.db'
@@ -296,4 +296,4 @@ def create_admin():
 
 if __name__ == '__main__':
     create_admin()
-    app.run(debug=True, port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=False)
